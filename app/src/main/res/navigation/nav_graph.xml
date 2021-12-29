@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/girisFragment">
+
+    <fragment
+        android:id="@+id/girisFragment"
+        android:name="com.rumeysaozer.quizaplication.GirisFragment"
+        android:label="fragment_giris"
+        tools:layout="@layout/fragment_giris" >
+        <action
+            android:id="@+id/action_girisFragment_to_sorularFragment"
+            app:destination="@id/sorularFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sorularFragment"
+        android:name="com.rumeysaozer.quizaplication.SorularFragment"
+        android:label="fragment_sorular"
+        tools:layout="@layout/fragment_sorular" >
+        <action
+            android:id="@+id/action_sorularFragment_to_lastFragment"
+            app:destination="@id/lastFragment" />
+        <argument
+            android:name="user"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/lastFragment"
+        android:name="com.rumeysaozer.quizaplication.LastFragment"
+        android:label="fragment_last"
+        tools:layout="@layout/fragment_last" >
+        <action
+            android:id="@+id/action_lastFragment_to_girisFragment"
+            app:destination="@id/girisFragment" />
+        <argument
+            android:name="user"
+            app:argType="string" />
+        <argument
+            android:name="correct"
+            app:argType="integer" />
+        <argument
+            android:name="questions"
+            app:argType="integer" />
+    </fragment>
+</navigation>
